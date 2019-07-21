@@ -26,9 +26,11 @@ from PIL import ImageDraw
 import os
 
 
-# ## MENU
+# ## main
 
 # In[2]:
+
+
 
 
 
@@ -69,57 +71,68 @@ def create_random_captcha_text(captcha_string_size=4):
 
     return captcha_string
 
-
-
+def captcha_img_string()
+    captcha_text = create_random_captcha_text()
+    captcha_img=[]
+    file=glob.glob(img_captcha_path)
+    
+    int i=0
+    for i in range(3):
+        c_string=''
+        tmp=captcha_text[i]
+        c_strin="..\img_data\Mayusculas\\"+tmp+".png"
+        for caFile in file:
+            
 
 #Inicio, creacion de captcha y creacion de la imagen con captcha y guardado con su nombre
-
-TEXT_COLOR =(195,38,226)#(238,238,238)
-SHADOW_COLOR=(238,238,238)#(195,38,226)
-X_data = []
-files=glob.glob(image_path) #solo funciona con jpg,"Probar con PNG y JPEG"
-for myFile in files:
-    if __name__ == '__main__':
-        # Crear Captcha 
-        captcha_text = create_random_captcha_text()
+def img_captcha_creation():
+    TEXT_COLOR =(195,38,226)#(238,238,238)
+    SHADOW_COLOR=(238,238,238)#(195,38,226)
+    X_data = []
+    files=glob.glob(image_path) #solo funciona con jpg,"Probar con PNG y JPEG"
+    for myFile in files:
+       
+         # Crear Captcha 
+        captcha_img_text = create_random_captcha_text()
         print(captcha_text) #visualizacion del captcha
-        
-    #reacomodo del captcha para la imagen
-    i=0
-    j=0
-    img_captcha=''
-    for i in range(4):
-        temp=captcha_text[i]
-        img_captcha+=str(temp)
-        j=j+1
-        img_captcha+=str('   ')#Espacio
-        j=j+1
-    #fin del acomodo, y se guarda en otra variable para poder ser usada despues
-    print(img_captcha)#visualizacion del captcha reacomodado
-    
-    #Selecion de tipo de letra, si quieres una en especial, descargar el TTF o OTF y modificar la ultima parte
-    
-    print(myFile) #Localiza la imagen en una carpeta
-    image = cv2.imread (myFile)
-    X_data.append (image)
-    img = Image.open(myFile)
-    draw = ImageDraw.Draw(img)
-    fnt = ImageFont.truetype(font_path,250)
-    draw.text((300,100), img_captcha,font=fnt,fill=(TEXT_COLOR),owidth=1,ocolor=(SHADOW_COLOR)) #Posiciones, "texto a dibujar en la imagen" ,Tipo de letra,color
-  
-    img.save("..\img_output/"+captcha_text + '.jpg') #Guarda el archivo generado con el nombre del captcha generado original
 
-print('X_data shape:', np.array(X_data).shape)
+        #reacomodo del captcha para la imagen
+        i=0
+        j=0
+        img_captcha=''
+        for i in range(3):
+            temp=captcha_img_text[i]
+            img_captcha+=str(temp)
+            j=j+1
+            img_captcha+=str('   ')#Espacio
+            j=j+1
+        #fin del acomodo, y se guarda en otra variable para poder ser usada despues
+        print(img_captcha)#visualizacion del captcha reacomodado
+
+        #Selecion de tipo de letra, si quieres una en especial, descargar el TTF o OTF y modificar la ultima parte
+
+        print(myFile) #Localiza la imagen en una carpeta
+        image = cv2.imread (myFile)
+        X_data.append (image)
+        img = Image.open(myFile)
+        draw = ImageDraw.Draw(img)
+        fnt = ImageFont.truetype(font_path,250)
+        draw.text((300,100), img_captcha,font=fnt,fill=(TEXT_COLOR),owidth=1,ocolor=(SHADOW_COLOR)) #Posiciones, "texto a dibujar en la imagen" ,Tipo de letra,color
+
+        img.save("..\img_output/"+captcha_text + '.jpg') #Guarda el archivo generado con el nombre del captcha generado original
+
+    print('X_data shape:', np.array(X_data).shape)
+
+
+    # In[ ]:
+    print("\n------------------------- Todo salio perfecto!! -------------------------------")
+    
+
+
 
 
 # In[ ]:
-print("\n------------------------- Todo salio perfecto!! -------------------------------")
 
-
-
-
-# In[ ]:
-
-
+img_captcha_creation();
 
 
