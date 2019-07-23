@@ -1,4 +1,4 @@
 CALL activate
 cd scr
-run.py
+python run.py
 pause
